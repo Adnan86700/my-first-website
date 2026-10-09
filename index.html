@@ -1,92 +1,618 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lead generation, professional website design and AI services for UK businesses.">
-    <title>Digital Growth Studio | UK Business Services</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Professional website design, lead generation and AI services for UK businesses. Get online, attract more customers and save time.">
+  <title>Digital Growth Studio | Websites, Leads & AI</title>
+
+  <style>
+    :root {
+      --navy: #10213a;
+      --blue: #2563eb;
+      --teal: #14b8a6;
+      --light: #f5f8fc;
+      --text: #243247;
+      --muted: #65748b;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: var(--white);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      background: var(--white);
+      border-bottom: 1px solid #e8edf5;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      color: var(--navy);
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    nav a {
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: var(--blue);
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--blue);
+      color: var(--white);
+      padding: 13px 21px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      background: transparent;
+      border: 1px solid #cbd5e1;
+      color: var(--navy);
+    }
+
+    .button-outline:hover {
+      color: var(--white);
+      border-color: var(--blue);
+    }
+
+    .hero {
+      background:
+        radial-gradient(ellipse at 85% 20%, #d9f5f1 0, transparent 35%),
+        linear-gradient(135deg, #f5f8ff, #ffffff 70%);
+      padding: 95px 0 90px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: #087f75;
+      background: #dff8f3;
+      border-radius: 30px;
+      padding: 7px 13px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 62px);
+      line-height: 1.1;
+      letter-spacing: -2px;
+      color: var(--navy);
+      margin-bottom: 22px;
+    }
+
+    h1 span {
+      color: var(--blue);
+    }
+
+    .hero p {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 570px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap;
+    }
+
+    .hero-note {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .visual-card {
+      background: var(--navy);
+      border-radius: 22px;
+      padding: 28px;
+      color: var(--white);
+      box-shadow: 0 25px 60px #10213a24;
+    }
+
+    .visual-card h2 {
+      font-size: 22px;
+      margin-bottom: 7px;
+    }
+
+    .visual-card > p {
+      color: #c4d0e2;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .mini-card {
+      background: #ffffff12;
+      border: 1px solid #ffffff18;
+      padding: 17px;
+      border-radius: 12px;
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .mini-icon {
+      width: 43px;
+      height: 43px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      background: #14b8a626;
+      display: grid;
+      place-items: center;
+      font-size: 21px;
+    }
+
+    .mini-card strong {
+      display: block;
+      font-size: 15px;
+    }
+
+    .mini-card small {
+      color: #c4d0e2;
+      font-size: 12px;
+    }
+
+    section {
+      padding: 82px 0;
+      scroll-margin-top: 85px;
+    }
+
+    .section-heading {
+      max-width: 650px;
+      margin: 0 auto 42px;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      color: var(--navy);
+      font-size: clamp(29px, 4vw, 40px);
+      line-height: 1.2;
+      margin-bottom: 14px;
+      letter-spacing: -1px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .services {
+      background: var(--white);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      padding: 30px 25px;
+      border: 1px solid #e4eaf3;
+      border-radius: 16px;
+      background: var(--white);
+      transition: 0.2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px #10213a0d;
+      border-color: #b9ccf7;
+    }
+
+    .service-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: #eaf0ff;
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 20px;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 17px;
+    }
+
+    .service-card ul {
+      list-style: none;
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .service-card li {
+      margin-top: 8px;
+    }
+
+    .service-card li::before {
+      content: "✓";
+      color: #0d9488;
+      font-weight: 800;
+      margin-right: 9px;
+    }
+
+    .about {
+      background: var(--light);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about h2 {
+      color: var(--navy);
+      font-size: clamp(29px, 4vw, 40px);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .benefit-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .benefit {
+      background: var(--white);
+      border: 1px solid #e5eaf2;
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .benefit strong {
+      color: var(--navy);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .benefit span {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .contact {
+      background: var(--white);
+    }
+
+    .contact-panel {
+      background: var(--navy);
+      border-radius: 22px;
+      padding: 55px 30px;
+      text-align: center;
+      color: var(--white);
+    }
+
+    .contact-panel h2 {
+      font-size: clamp(29px, 4vw, 42px);
+      line-height: 1.2;
+      margin-bottom: 15px;
+    }
+
+    .contact-panel p {
+      max-width: 620px;
+      margin: 0 auto 25px;
+      color: #c4d0e2;
+    }
+
+    .contact-panel .button {
+      background: var(--teal);
+      color: #062b32;
+    }
+
+    footer {
+      background: #0b1729;
+      color: #c4d0e2;
+      padding: 25px 0;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 800px) {
+      .navbar {
+        padding: 16px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        font-size: 13px;
+      }
+
+      .hero {
+        padding: 65px 0;
+      }
+
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
-
-<header class="header">
-    <a href="#" class="logo">Digital<span>Growth</span></a>
-    <nav>
+  <header>
+    <div class="container navbar">
+      <a class="logo" href="#home">Digital<span>Growth</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
         <a href="#services">Services</a>
-        <a href="#about">About</a>
+        <a href="#about">Why Us</a>
         <a href="#contact">Contact</a>
-    </nav>
-</header>
-
-<section class="hero">
-    <p class="tag">YOUR DIGITAL GROWTH PARTNER</p>
-    <h1>Helping UK Businesses<br>Grow <span>Smarter Online.</span></h1>
-    <p class="intro">
-        Lead generation, modern websites and practical AI solutions
-        to help your business reach more customers and save time.
-    </p>
-    <a class="btn" href="#services">Explore Our Services</a>
-    <a class="btn btn-outline"
-       href="https://wa.me/923375364307"
-       target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
-</section>
-
-<section id="services" class="section">
-    <p class="tag">WHAT WE DO</p>
-    <h2>Services for Your Business</h2>
-    <p class="section-intro">
-        Practical digital services designed around your business goals.
-    </p>
-
-    <div class="cards">
-        <article class="card">
-            <div class="icon">🎯</div>
-            <h3>Lead Generation</h3>
-            <p>Build targeted prospect lists to help your business connect with potential customers.</p>
-            <a href="#contact">Enquire Now →</a>
-        </article>
-
-        <article class="card">
-            <div class="icon">💻</div>
-            <h3>Website Design</h3>
-            <p>Get a clean, mobile-friendly website that presents your business professionally.</p>
-            <a href="#contact">Enquire Now →</a>
-        </article>
-
-        <article class="card">
-            <div class="icon">🤖</div>
-            <h3>AI Services</h3>
-            <p>Explore AI-assisted content, customer support tools and simple business automation.</p>
-            <a href="#contact">Enquire Now →</a>
-        </article>
+      </nav>
     </div>
-</section>
+  </header>
 
-<section id="about" class="section about">
-    <p class="tag">WHY WORK WITH US?</p>
-    <h2>Simple Solutions. Clear Communication.</h2>
-    <p>
-        We help small businesses explore digital tools and services
-        that support their growth. Tell us what you need, and we can
-        discuss a solution that fits your goals and budget.
-    </p>
-</section>
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Digital services for UK businesses</span>
+          <h1>Build your online presence. <span>Grow your business.</span></h1>
+          <p>
+            We help businesses create a stronger digital presence through
+            professional websites, targeted lead generation and practical
+            AI-powered solutions.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#contact">Discuss Your Project →</a>
+            <a class="button button-outline" href="#services">Explore Services</a>
+          </div>
+          <div class="hero-note">
+            Practical digital solutions designed around your business goals.
+          </div>
+        </div>
 
-<section id="contact" class="section contact">
-    <p class="tag">LET'S TALK</p>
-    <h2>Ready to Grow Your Business?</h2>
-    <p>Tell us about your project and the service you need.</p>
-    <a class="btn"
-       href="https://wa.me/923001234567?text=Hello%2C%20I%20am%20interested%20in%20your%20digital%20services."
-       target="_blank" rel="noopener noreferrer">
-       Contact Us on WhatsApp
-    </a>
-    <p class="small">Serving businesses looking for digital support in the UK.</p>
-</section>
+        <div class="visual-card">
+          <h2>Your next stage of growth</h2>
+          <p>Three services. One focus: helping your business move forward.</p>
 
-<footer>
-    <p>© 2026 Digital Growth Studio. All rights reserved.</p>
-</footer>
+          <div class="mini-card">
+            <div class="mini-icon">🌐</div>
+            <div>
+              <strong>Website Design</strong>
+              <small>Professional, mobile-friendly websites</small>
+            </div>
+          </div>
 
+          <div class="mini-card">
+            <div class="mini-icon">🎯</div>
+            <div>
+              <strong>Lead Generation</strong>
+              <small>Research to help find potential customers</small>
+            </div>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-icon">✦</div>
+            <div>
+              <strong>AI Services</strong>
+              <small>Smarter workflows and task automation</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Digital services to move your business forward</h2>
+          <p>
+            Choose the support that fits your goals, from building a website
+            to finding prospects and improving everyday workflows.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-icon">🌐</div>
+            <h3>Website Design</h3>
+            <p>
+              Give your business a professional online presence with a
+              clean, responsive website built around your services.
+            </p>
+            <ul>
+              <li>Mobile-friendly layouts</li>
+              <li>Clear service information</li>
+              <li>Contact and enquiry sections</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🎯</div>
+            <h3>Lead Generation</h3>
+            <p>
+              Build organised prospect lists to support your outreach and
+              help you identify businesses that may need your services.
+            </p>
+            <ul>
+              <li>Business prospect research</li>
+              <li>Contact data organisation</li>
+              <li>Structured lead spreadsheets</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">✦</div>
+            <h3>AI Services</h3>
+            <p>
+              Explore practical ways to use AI tools to simplify repetitive
+              tasks and make your business workflows more efficient.
+            </p>
+            <ul>
+              <li>AI-assisted content workflows</li>
+              <li>Simple task automation</li>
+              <li>Workflow improvement ideas</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div>
+          <span class="eyebrow">A straightforward approach</span>
+          <h2>Digital support focused on your goals</h2>
+          <p>
+            Every business is different. Our approach starts with
+            understanding what you need, then identifying a practical
+            solution that fits your objectives and budget.
+          </p>
+          <p>
+            Whether you need a new website, organised prospect research or
+            help exploring AI tools, we aim to make the process clear and
+            straightforward.
+          </p>
+          <a class="button" href="#contact">Let's Talk →</a>
+        </div>
+
+        <div class="benefit-list">
+          <div class="benefit">
+            <strong>Clear communication</strong>
+            <span>Understand the proposed work, deliverables and next steps.</span>
+          </div>
+          <div class="benefit">
+            <strong>Solutions built around you</strong>
+            <span>Discuss the service that makes sense for your business.</span>
+          </div>
+          <div class="benefit">
+            <strong>Practical delivery</strong>
+            <span>Focus on useful work and clearly defined project outcomes.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <h2>Ready to discuss your next project?</h2>
+          <p>
+            Tell us about your business and what you would like to improve.
+            Get in touch to discuss website design, lead generation or AI services.
+          </p>
+          <!-- Replace the email address below with your real business email. -->
+          <a class="button" href="mailto:a9586974@gmail.com">
+            Email Us About Your Project →
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year">2026</span> Digital Growth Studio. All rights reserved.</span>
+      <span>Website Design · Lead Generation · AI Services</span>
+    </div>
+  </footer>
 </body>
 </html>
